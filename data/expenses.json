@@ -2,7 +2,7 @@
     "expenses": [
         {
             "date": "2025-10-13",
-            "what": "Kwiaty dla Pań",
+            "what": "Kwiaty dla Pan",
             "amount": 300.00,
             "receipt": "receipts/20251013_165531.jpg"
         },
