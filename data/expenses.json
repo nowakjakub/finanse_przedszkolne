@@ -1,10 +1,10 @@
 {
     "expenses": [
         {
-            "date": "2025-09-20",
-            "what": "Przykladowy wydatek",
-            "amount": 0.00,
-            "receipt_note": "Paragon zostałby dołaczony później"
+            "date": "2025-10-13",
+            "what": "Kwiaty dla Pań",
+            "amount": 300.00,
+            "receipt": "receipts/20251013_165531.jpg"
         },
         {
             "date": "2025-09-10",
