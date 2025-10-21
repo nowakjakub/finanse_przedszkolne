@@ -1,6 +1,12 @@
 {
     "expenses": [
         {
+            "date": "2025-10-20",
+            "what": "Artykuly na przedstawienie",
+            "amount": 40.00,
+            "receipt": "receipts/20251021_080809.jpg"
+        },
+        {
             "date": "2025-10-14",
             "what": "Owoce",
             "amount": 53.18,
