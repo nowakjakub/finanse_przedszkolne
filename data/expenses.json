@@ -1,6 +1,12 @@
 {
     "expenses": [
         {
+            "date": "2025-11-02",
+            "what": "Napoje, kubki, talerzyki na przedstawienie",
+            "amount": 64.35,
+            "receipt": "receipts/20251102_180111.jpg"
+        },
+        {
             "date": "2025-10-20",
             "what": "Artykuly na przedstawienie",
             "amount": 40.00,
