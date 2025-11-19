@@ -2,7 +2,7 @@
     "collections": [
         {
             "id": "klasowe-2025-09",
-            "name": "Klasowe — wrzesień 2025",
+            "name": "Klasowe - wrzesień 2025",
             "amountPerChild": 50.0,
             "status": "open",
             "paid": [
@@ -30,6 +30,16 @@
                 23,
                 24,
                 25
+            ]
+        },
+        {
+            "id": "kacik_sportowy",
+            "name": "Kącik sportowy - DOBROWOLNE",
+            "amountPerChild": 10.0,
+            "status": "open",
+            "paid": [
+                1,
+                7
             ]
         }
     ]
