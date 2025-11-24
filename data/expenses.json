@@ -1,6 +1,12 @@
 {
     "expenses": [
         {
+            "date": "2025-11-22",
+            "what": "Zakupy na andrzejki",
+            "amount": 241.21,
+            "receipt": "receipts/20251124_102520.jpg"
+        },
+        {
             "date": "2025-11-02",
             "what": "Napoje, kubki, talerzyki na przedstawienie",
             "amount": 64.35,
