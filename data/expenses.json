@@ -1,8 +1,14 @@
 {
     "expenses": [
         {
+            "date": "2025-11-27",
+            "what": "Worki świąteczne",
+            "amount": 78.20,
+            "receipt": "receipts/20251202_075540.jpg"
+        },
+        {
             "date": "2025-11-22",
-            "what": "Zakupy na andrzejki",
+            "what": "Zakupy na andrzejki i mikolajki",
             "amount": 241.21,
             "receipt": "receipts/20251124_102520.jpg"
         },
