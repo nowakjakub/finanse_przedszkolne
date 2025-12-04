@@ -1,6 +1,12 @@
 {
     "expenses": [
         {
+            "date": "2025-12-04",
+            "what": "Przedłużacze",
+            "amount": 81.80,
+            "receipt": "receipts/20251204_090327.jpg"
+        },
+        {
             "date": "2025-11-27",
             "what": "Worki świąteczne",
             "amount": 78.20,
