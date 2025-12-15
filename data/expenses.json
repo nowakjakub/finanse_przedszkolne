@@ -1,6 +1,12 @@
 {
     "expenses": [
         {
+            "date": "2025-12-15",
+            "what": "Papier ksero",
+            "amount": 59.97,
+            "receipt": "receipts/20251215_210311.jpg"
+        },
+        {
             "date": "2025-12-04",
             "what": "Przedłużacze",
             "amount": 81.80,
