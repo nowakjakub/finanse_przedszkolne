@@ -5,7 +5,7 @@
             "name": "Dekoracja - kwiatki",
             "amountPerChild": 10.0,
             "status": "open",
-            "paid": []
+            "paid": 18,19
         },
         {
             "id": "kacik_sportowy",
