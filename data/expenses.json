@@ -1,6 +1,12 @@
 {
     "expenses": [
         {
+            "date": "2026-01-11",
+            "what": "Dekoracje - Kwiatki",
+            "amount": 250.00,
+            "receipt": "receipts/IMG_20260112_103911_2.jpg"
+        },
+        {
             "date": "2025-12-15",
             "what": "Papier ksero",
             "amount": 59.97,
