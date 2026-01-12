@@ -1,6 +1,34 @@
 {
     "collections": [
         {
+            "id": "kwiatki-2026-01",
+            "name": "Dekoracja - kwiatki",
+            "amountPerChild": 10.0,
+            "status": "open",
+            "paid": []
+        },
+        {
+            "id": "kacik_sportowy",
+            "name": "Kącik sportowy - DOBROWOLNE",
+            "amountPerChild": 10.0,
+            "status": "open",
+            "paid": [
+                1,
+                7,
+                8,
+                9,
+                10,
+                13,
+                14,
+                16,
+                17,
+                18,    
+                19,
+                24,
+                25
+            ]
+        },
+        {
             "id": "klasowe-2025-09",
             "name": "Klasowe - wrzesień 2025",
             "amountPerChild": 50.0,
@@ -32,27 +60,6 @@
                 24,
                 25
             ]
-        },
-        {
-            "id": "kacik_sportowy",
-            "name": "Kącik sportowy - DOBROWOLNE",
-            "amountPerChild": 10.0,
-            "status": "open",
-            "paid": [
-                1,
-                7,
-                8,
-                9,
-                10,
-                13,
-                14,
-                16,
-                17,
-                18,    
-                19,
-                24,
-                25
-            ]
-        }
+        }        
     ]
 }
