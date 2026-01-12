@@ -1,5 +1,11 @@
 {
     "expenses": [
+       {
+            "date": "2026-01-12",
+            "what": "Kartki A4 techniczne - czerwone i różowe, 50 sztuk",
+            "amount": 46.65,
+            "receipt": "receipts/2026-01-12 11-14-13.png"
+        },
         {
             "date": "2026-01-11",
             "what": "Dekoracje - Kwiatki",
