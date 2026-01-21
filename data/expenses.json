@@ -1,5 +1,11 @@
 {
     "expenses": [
+               {
+            "date": "2026-01-15",
+            "what": "Zestaw guzików",
+            "amount": 33.49,
+            "receipt": "receipts/20260121_091533.jpg"
+    },
        {
             "date": "2026-01-12",
             "what": "Kartki A4 techniczne - czerwone i różowe, 50 sztuk",
