@@ -1,6 +1,12 @@
 {
     "expenses": [
         {
+            "date": "2026-02-09",
+            "what": "Kleje Magic dla całej grupy",
+            "amount": 222.50,
+            "receipt": "receipts/IMG_20260209.JPEG"
+        },
+        {
             "date": "2026-01-26",
             "what": "Kubeczki i plater na dzień babci i dziadka",
             "amount": 32.84,
