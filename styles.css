@@ -171,3 +171,57 @@ td {
     border-radius: 8px;
     display: inline-block;
 }
+
+.current-date {
+    font-size: .95rem;
+    color: var(--muted);
+    margin-bottom: 12px;
+}
+
+.event {
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.event h4 {
+    margin: 0 0 4px;
+}
+
+.event .event-date {
+    color: var(--muted);
+    font-size: .9rem;
+}
+
+.event .countdown {
+    color: var(--accent);
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+.event.past {
+    opacity: 0.6;
+}
+
+.event.past .countdown {
+    color: var(--muted);
+    text-decoration: line-through;
+}
+
+.information-item {
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.information-item h4 {
+    margin: 0 0 4px;
+}
+
+.information-item p {
+    margin: 0;
+    color: var(--muted);
+    font-size: .95rem;
+}

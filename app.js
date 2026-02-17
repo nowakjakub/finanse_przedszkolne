@@ -30,16 +30,23 @@
 
     async function init() {
         try {
-            const [site, collectionsWrap, incomesWrap, expensesWrap, banking] = await Promise.all([
+            const [site, collectionsWrap, incomesWrap, expensesWrap, banking, eventsWrap, informationWrap] = await Promise.all([
                 fetchJSON('site.json'),
                 fetchJSON('collections.json'),
                 fetchJSON('incomes.json'),
                 fetchJSON('expenses.json'),
                 fetchJSON('banking.json'),
+                fetchJSON('events.json'),
+                fetchJSON('information.json'),
             ]);
 
             const totalChildren = Number(site?.totalChildren ?? TOTAL_CHILDREN_FALLBACK);
             qs('#site-title').textContent = site?.title || 'Składki grupy';
+
+            // Render current date
+            const today = new Date();
+            const dateFormatter = new Intl.DateTimeFormat('pl-PL', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            qs('#current-date').textContent = dateFormatter.format(today);
 
             // Prepare collections derived data
             const collections = (collectionsWrap?.collections || []).map(col => {
@@ -98,6 +105,39 @@
           <td>${link}</td>
         </tr>`;
             }).join('');
+
+            // Render events
+            const eventsList = qs('#events-list');
+            const events = (eventsWrap?.events || []).slice().sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+            const today_iso = today.toISOString().split('T')[0];
+            const renderEvent = (e) => {
+                const eventDate = new Date(e.date);
+                const isAfter = e.date > today_iso;
+                const diffTime = eventDate - today;
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                const countdownText = isAfter ? `${diffDays} ${diffDays === 1 ? 'dzień' : 'dni'} do wydarzenia` : '';
+                const className = isAfter ? 'event' : 'event past';
+                return `
+                  <div class="${className}">
+                    <h4>${escapeHtml(e.title || '')}</h4>
+                    <div class="event-date">${escapeHtml(e.date || '')}</div>
+                    ${e.description ? `<p>${escapeHtml(e.description || '')}</p>` : ''}
+                    ${isAfter ? `<div class="countdown">${countdownText}</div>` : ''}
+                  </div>`;
+            };
+            eventsList.innerHTML = events.length ? events.map(renderEvent).join('') : '<p>Brak zaplanowanych wydarzeń.</p>';
+
+            // Render information
+            const informationContent = qs('#information-content');
+            const informationItems = (informationWrap?.information || []);
+            const renderInformationItem = (item) => {
+                return `
+              <div class="information-item">
+                <h4>${escapeHtml(item.title || '')}</h4>
+                <p>${escapeHtml(item.content || '')}</p>
+              </div>`;
+            };
+            informationContent.innerHTML = informationItems.length ? informationItems.map(renderInformationItem).join('') : '<p>Brak informacji.</p>';
 
             // Banking data
             const bankingBox = qs('#banking-data');

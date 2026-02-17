@@ -1,0 +1,19 @@
+{
+    "events": [
+        {
+            "date": "2026-03-18",
+            "title": "Kino 'Roznimy sie od siebie i to jest ciekawe'",
+            "description": "Wyjście do kina dla całej grupy"
+        },
+        {
+            "date": "2026-04-10",
+            "title": "Święto wiosny",
+            "description": "Rodzinne święto w przedszkolu"
+        },
+        {
+            "date": "2026-02-14",
+            "title": "Walentynki",
+            "description": "Wymiana serduszek w grupie"
+        }
+    ]
+}
