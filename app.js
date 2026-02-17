@@ -125,7 +125,26 @@
                     ${isAfter ? `<div class="countdown">${countdownText}</div>` : ''}
                   </div>`;
             };
-            eventsList.innerHTML = events.length ? events.map(renderEvent).join('') : '<p>Brak zaplanowanych wydarzeń.</p>';
+
+            const upcomingEvents = events.filter(e => e.date > today_iso);
+            const pastEvents = events.filter(e => e.date <= today_iso);
+
+            let eventsHTML = '';
+            if (upcomingEvents.length) {
+                eventsHTML += upcomingEvents.map(renderEvent).join('');
+            } else {
+                eventsHTML += '<p>Brak zaplanowanych wydarzeń.</p>';
+            }
+
+            if (pastEvents.length) {
+                eventsHTML += `
+                <details class="past-events">
+                    <summary>Przeszłe wydarzenia</summary>
+                    ${pastEvents.map(renderEvent).join('')}
+                </details>`;
+            }
+
+            eventsList.innerHTML = eventsHTML;
 
             // Render information
             const informationContent = qs('#information-content');

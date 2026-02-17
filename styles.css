@@ -209,6 +209,29 @@ td {
     text-decoration: line-through;
 }
 
+.past-events {
+    margin-top: 12px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+}
+
+.past-events summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--muted);
+    padding: 4px 0;
+}
+
+.past-events summary:hover {
+    color: var(--fg);
+}
+
+.past-events>div {
+    margin-top: 8px;
+}
+
 .information-item {
     padding: 10px;
     border: 1px solid var(--border);
