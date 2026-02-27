@@ -1,9 +1,14 @@
 {
     "events": [
         {
+            "date": "2026-03-19",
+            "title": "Spektakl 'Karolcia'",
+            "description": "CKSiE: Spektakl dla dzieci w wieku 5-7 lat, oparty na książce Marii Krüger. Opowiada historię dziewczynki, która znajduje magiczny niebieski koralik i przeżywa niesamowite przygody."
+        },
+        {
             "date": "2026-03-18",
             "title": "Kino 'Różnimy się od siebie i to jest ciekawe'",
-            "description": "Wyjście do kina dla całej grupy"
+            "description": "Kino: Film animowany dla dzieci w wieku 4-8 lat, który pokazuje, jak różnorodność jest piękna i ważna. Opowiada o grupie zwierząt, które uczą się akceptować swoje różnice i współpracować."
         }
     ]
 }
