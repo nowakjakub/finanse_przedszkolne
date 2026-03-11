@@ -1,6 +1,12 @@
 {
     "expenses": [
         {
+            "date": "2026-03-11",
+            "what": "Kino",
+            "amount": 322,
+            "receipt": ""
+        },
+{
             "date": "2026-02-09",
             "what": "Kleje Magic dla całej grupy",
             "amount": 222.50,
