@@ -222,12 +222,28 @@ td {
     cursor: pointer;
     font-weight: 600;
     color: var(--muted);
-    padding: 4px 0;
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border-bottom: 1px solid var(--border);
 }
 
 .past-events summary:hover,
 .card details summary:hover {
     color: var(--fg);
+}
+
+.card details summary::after {
+    content: "▼ Rozwiń";
+    font-size: .85rem;
+    font-weight: 500;
+    color: var(--muted);
+}
+
+.card details[open] summary::after {
+    content: "▲ Zwiń";
 }
 
 .past-events>div,
