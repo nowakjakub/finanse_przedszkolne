@@ -1,26 +1,43 @@
 {
     "collections": [
         {
+            "id": "warsztaty-2026-04",
+            "name": "WARSZTATY ANIMALOTERAPII do 08.04.2026",
+            "amountPerChild": 30.0,
+            "status": "open",
+            "paid": [
+                14
+            ]
+        },
+        {
             "id": "spektakl-2026-03",
             "name": "Spektakl 'Karolcia' do 16.03.2026",
             "amountPerChild": 25.0,
             "status": "closed",
             "paid": [
-                1, 2,
+                1,
+                2,
                 3,
                 4,
-                5, 6,
-                7, 8,
+                5,
+                6,
+                7,
+                8,
                 9,
                 10,
                 11,
-                12, 13,
-                14, 15, 16,
+                12,
+                13,
+                14,
+                15,
+                16,
                 17,
-                20,
                 21,
-                22, 23,
-                24, 25
+                20,
+                22,
+                23,
+                24,
+                25
             ]
         },
         {
