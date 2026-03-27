@@ -217,18 +217,21 @@ td {
     background: var(--bg);
 }
 
-.past-events summary {
+.past-events summary,
+.card details summary {
     cursor: pointer;
     font-weight: 600;
     color: var(--muted);
     padding: 4px 0;
 }
 
-.past-events summary:hover {
+.past-events summary:hover,
+.card details summary:hover {
     color: var(--fg);
 }
 
-.past-events>div {
+.past-events>div,
+.card details>div {
     margin-top: 8px;
 }
 
