@@ -1,6 +1,15 @@
 {
     "collections": [
         {
+            "id": "kino-2026-04",
+            "name": "Koziolek matołek - do 10.04.2026",
+            "amountPerChild": 15.0,
+            "status": "open",
+            "paid": [
+                9, 14,22
+            ]
+        },
+        {
             "id": "warsztaty-2026-04",
             "name": "WARSZTATY ANIMALOTERAPII do 08.04.2026",
             "amountPerChild": 30.0,
