@@ -1,5 +1,14 @@
 {
     "collections": [
+       {
+            "id": "LEGO-2026-04",
+            "name": "Warsztaty LEGO",
+            "amountPerChild": 35.0,
+            "status": "open",
+            "paid": [
+               14
+            ]
+        }
         {
             "id": "kino-2026-04",
             "name": "Koziolek matołek - do 10.04.2026",
