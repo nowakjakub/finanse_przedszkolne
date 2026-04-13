@@ -2,6 +2,7 @@
     const qs = (sel, el = document) => el.querySelector(sel);
     const qsa = (sel, el = document) => [...el.querySelectorAll(sel)];
 
+    // Utility selectors - szybszy dostęp do pojedynczych i wielu elementów DOM
     // Theme
     const root = document.documentElement;
     const savedTheme = localStorage.getItem('theme');
@@ -15,17 +16,20 @@
         toggleBtn.textContent = dark ? '☀️' : '🌙';
     });
 
+    // Stałe konfigurujące źródło danych i formatowanie
     const DATA_BASE = './data';
     const DATE_FORMATTER = new Intl.DateTimeFormat('pl-PL', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
     const PLN = (n) => new Intl.NumberFormat('pl-PL', { style: 'currency', currency: 'PLN' }).format(n);
     const TOTAL_CHILDREN_FALLBACK = 25;
 
+    // Uniwersalna funkcja pobierająca dane JSON z katalogu data
     const fetchJSON = async (path) => {
         const res = await fetch(`${DATA_BASE}/${path}`);
         if (!res.ok) throw new Error(`Błąd pobierania ${path}: ${res.status}`);
         return res.json();
     };
 
+    // Normalizacja listy wpłat: usuwanie duplikatów, sortowanie, filtrowanie nieprawidłowych numerów
     function normalizePaidList(rawPaid, totalChildren) {
         if (!rawPaid) return [];
         const items = Array.isArray(rawPaid)
@@ -37,6 +41,7 @@
             .sort((a, b) => a - b);
     }
 
+    // Przygotowanie obiektu zbiórki z wyliczeniami: ile opłacono, ile zebrano, ile osób jeszcze nie zapłaciło
     function normalizeCollection(col, totalChildren) {
         const paid = normalizePaidList(col.paid, totalChildren);
         const amount = Number(col.amountPerChild || 0);
@@ -55,6 +60,7 @@
         };
     }
 
+    // Render pojedynczej karty zbiórki z podstawowymi danymi dla rodziców
     function renderCollectionCard(c, totalChildren) {
         const pct = totalChildren ? Math.round((c.paidCount / totalChildren) * 100) : 0;
         const statusLabel = c.status === 'open'
@@ -68,11 +74,13 @@
             </div>`;
     }
 
+    // Pokazujemy błąd w kilku sekcjach, kiedy coś się nie załaduje poprawnie
     function renderError(err) {
         qs('#balance-summary').textContent = 'Błąd ładowania danych.';
         qsa('.card').forEach((card) => card.insertAdjacentHTML('beforeend', `<p class="hint">${escapeHtml(String(err.message || err))}</p>`));
     }
 
+    // Obsługa formularza wyszukiwania numeru dziecka oraz pokazanie zaległości
     function setupLookupForm(openCols, totalChildren) {
         const form = qs('#lookup-form');
         const result = qs('#lookup-result');
@@ -104,6 +112,7 @@
         });
     }
 
+    // Wyświetlanie podsumowania stanu konta i przejrzystego breakdownu
     function renderBalance(fromCollections, otherIncome, expenses) {
         qs('#balance-summary').textContent = PLN(fromCollections + otherIncome - expenses);
         const breakdown = qs('#balance-breakdown');
@@ -129,6 +138,7 @@
         }).join('');
     }
 
+    // Render listy wydarzeń: nadchodzące na górze, archiwum w rozwijanym panelu
     function renderEvents(eventsWrap, today) {
         const eventsList = qs('#events-list');
         const events = (eventsWrap?.events || []).slice().sort((a, b) => (a.date || '').localeCompare(b.date || ''));
@@ -169,6 +179,7 @@
         eventsList.innerHTML = html;
     }
 
+    // Render listy ważnych informacji dla rodziców
     function renderInformation(informationWrap) {
         const content = qs('#information-content');
         const info = (informationWrap?.information || []).map((item) => `
@@ -200,6 +211,8 @@
         });
     }
 
+    // Główna funkcja uruchamiana po załadowaniu strony
+    // Ładuje dane, przygotowuje obiekty i wyświetla wszystkie sekcje w odpowiedniej kolejności
     async function init() {
         try {
             const [site, collectionsWrap, incomesWrap, expensesWrap, banking, eventsWrap, informationWrap] = await Promise.all([
@@ -237,6 +250,7 @@
         }
     }
 
+    // Proste zabezpieczenie przed wstrzyknięciem HTML w danych
     function escapeHtml(str = '') {
         return String(str).replace(/[&<>"']/g, (s) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', '\'': '&#39;' }[s]));
     }
