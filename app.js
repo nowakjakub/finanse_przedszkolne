@@ -237,13 +237,12 @@
     // Ładuje dane, przygotowuje obiekty i wyświetla wszystkie sekcje w odpowiedniej kolejności
     async function init() {
         try {
-            const [collectionsWrap, incomesWrap, expensesWrap, banking, eventsWrap, informationWrap] = await Promise.all([
+            const [collectionsWrap, incomesWrap, expensesWrap, banking, eventsWrap] = await Promise.all([
                 fetchJSON('collections.json'),
                 fetchJSON('incomes.json'),
                 fetchJSON('expenses.json'),
                 fetchJSON('banking.json'),
                 fetchJSON('events.json'),
-                fetchJSON('information.json'),
             ]);
 
             const totalChildren = 25; // Stała liczba dzieci w grupie
