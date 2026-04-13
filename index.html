@@ -12,16 +12,19 @@
     <header class="topbar">
         <div>
             <h1 id="site-title">KACZUSZKI</h1>
-            <p class="subtitle">Podgląd wydarzeń, informacji, wpłat, wydatków, danych do przelewu</p>
         </div>
-        <button id="theme-toggle" aria-label="Przełącz motyw" title="Przełącz motyw">🌙</button>
     </header>
+
+    <div id="event-banner" class="event-banner" style="display: none;"></div>
 
     <main class="container">
 
+        <button id="theme-toggle" class="theme-toggle-card" aria-label="Przełącz motyw" title="Przełącz motyw">🌙
+            Przełącz motyw</button>
+
         <section class="card" id="balance-card">
             <div id="current-date" class="current-date"></div>
-            <h2>Stan konta</h2>
+            <h2>💰 Stan konta</h2>
             <div id="balance-summary" class="balance"></div>
             <details>
                 <summary>Jak liczymy?</summary>
@@ -29,31 +32,25 @@
             </details>
         </section>
 
-        <section class="grid-two">
-            <article class="card" id="current-collections">
-                <h2>Aktualne zbiórki</h2>
-                <div id="current-list"></div>
-            </article>
-            <article class="card" id="past-collections">
-                <details>
-                    <summary>
-                        <h2>Poprzednie zbiórki</h2>
-                    </summary>
-                    <div id="past-list"></div>
-                </details>
-            </article>
+        <section class="card" id="collections-section">
+            <h2>🎁 Zbiórki</h2>
+            <div id="current-list"></div>
+            <details>
+                <summary>📦 Poprzednie zbiórki</summary>
+                <div id="past-list"></div>
+            </details>
         </section>
 
         <section class="card" id="banking">
-            <h2>Dane do przelewu</h2>
+            <h2>🏦 Dane do przelewu</h2>
             <div id="banking-data"></div>
         </section>
 
-        <section class="card" id="search-card">
-            <h2>Sprawdź numer dziecka</h2>
+        <section class="card" id="lookup-card">
+            <h2>👶 Czy już zapłaciłem?</h2>
             <form id="lookup-form">
-                <label for="child-number">Numer z dziennika (1–25):</label>
-                <input id="child-number" name="child-number" type="number" min="1" max="25" required />
+                <label for="child-number">Numer z dziennika:</label>
+                <select id="child-number" name="child-number" required></select>
                 <button type="submit">Sprawdź</button>
             </form>
             <div id="lookup-result" class="lookup"></div>
@@ -61,39 +58,35 @@
         </section>
 
         <section class="card" id="events">
-            <h2>Wydarzenia</h2>
+            <h2>🎉 Wydarzenia</h2>
             <div id="events-list"></div>
         </section>
 
-        <section class="card" id="information">
-            <details open>
-                <summary>
-                    <h2>Informacje</h2>
-                </summary>
-                <div id="information-content"></div>
-            </details>
-        </section>
-
         <section class="card" id="expenses">
-            <h2>Wydatki</h2>
-            <div class="table-wrap">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Data</th>
-                            <th>Opis</th>
-                            <th>Kwota</th>
-                            <th>Paragon</th>
-                        </tr>
-                    </thead>
-                    <tbody id="expenses-body"></tbody>
-                </table>
-            </div>
+            <details>
+                <summary>
+                    <h2>📊 Wydatki</h2>
+                </summary>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Opis</th>
+                                <th>Kwota</th>
+                                <th>Paragon</th>
+                            </tr>
+                        </thead>
+                        <tbody id="expenses-body"></tbody>
+                    </table>
+                </div>
+            </details>
         </section>
 
     </main>
 
     <footer class="footer">
+        <p>Grupa Kaczuszki — transparentne zarządzanie składkami, wydatkami i wydarzeniami</p>
         <small>Strona działa w 100% statycznie na GitHub Pages.</small>
     </footer>
 

@@ -6,14 +6,19 @@
     // Theme
     const root = document.documentElement;
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') root.classList.add('dark');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const shouldBeDark = savedTheme ? savedTheme === 'dark' : prefersDark;
+    if (shouldBeDark) root.classList.add('dark');
     const toggleBtn = qs('#theme-toggle');
-    toggleBtn.textContent = root.classList.contains('dark') ? '☀️' : '🌙';
+    const updateThemeButton = () => {
+        const isDark = root.classList.contains('dark');
+        toggleBtn.textContent = (isDark ? '☀️' : '🌙') + ' Przełącz motyw';
+    };
+    updateThemeButton();
     toggleBtn.addEventListener('click', () => {
         root.classList.toggle('dark');
-        const dark = root.classList.contains('dark');
-        localStorage.setItem('theme', dark ? 'dark' : 'light');
-        toggleBtn.textContent = dark ? '☀️' : '🌙';
+        localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
+        updateThemeButton();
     });
 
     // Stałe konfigurujące źródło danych i formatowanie
@@ -84,6 +89,13 @@
     function setupLookupForm(openCols, totalChildren) {
         const form = qs('#lookup-form');
         const result = qs('#lookup-result');
+        const select = qs('#child-number');
+
+        // Wypełnij listę rozwijaną numerami dzieci
+        select.innerHTML = Array.from({ length: totalChildren }, (_, i) => {
+            const value = i + 1;
+            return `<option value="${value}">${value}</option>`;
+        }).join('');
 
         form.addEventListener('submit', (ev) => {
             ev.preventDefault();
@@ -91,7 +103,7 @@
             const n = Number(raw);
 
             if (!Number.isInteger(n) || n < 1 || n > totalChildren) {
-                result.innerHTML = `<p class="badge due">Podaj numer od 1 do ${totalChildren}.</p>`;
+                result.innerHTML = `<p class="badge due">Wybierz numer od 1 do ${totalChildren}.</p>`;
                 return;
             }
 
@@ -139,18 +151,20 @@
     }
 
     // Render listy wydarzeń: nadchodzące na górze, archiwum w rozwijanym panelu
+    // Jeśli są wydarzenia w ciągu 5 dni, pokaż baner dla każdego z nich
     function renderEvents(eventsWrap, today) {
         const eventsList = qs('#events-list');
         const events = (eventsWrap?.events || []).slice().sort((a, b) => (a.date || '').localeCompare(b.date || ''));
         const todayIso = today.toISOString().split('T')[0];
 
-        const renderEvent = (e) => {
+        const closeEventDates = new Set();
+        const renderEvent = (e, isClose) => {
             const eventDate = new Date(e.date);
             const isAfter = e.date > todayIso;
             const diffTime = eventDate - today;
             const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
             return `
-                <div class="event${isAfter ? '' : ' past'}">
+                <div class="event${isAfter ? '' : ' past'}${isClose ? ' close-event' : ''}">
                     <h4>${escapeHtml(e.title || '')}</h4>
                     <div class="event-date">${escapeHtml(e.date || '')}</div>
                     ${e.description ? `<p>${escapeHtml(e.description)}</p>` : ''}
@@ -160,10 +174,30 @@
 
         const upcomingEvents = events.filter((e) => e.date > todayIso);
         const pastEvents = events.filter((e) => e.date <= todayIso);
+
+        // Znajdź wszystkie eventy w ciągu 5 dni i pokaż ich listę w banerze
+        const closeEvents = upcomingEvents.filter((e) => {
+            const eventDate = new Date(e.date);
+            const diffTime = eventDate - today;
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            return diffDays > 0 && diffDays <= 5;
+        });
+
+        // Utwórz Set dat bliskich eventów dla szybkiego sprawdzenia
+        closeEvents.forEach(e => closeEventDates.add(e.date));
+
+        if (closeEvents.length > 0) {
+            const banner = qs('#event-banner');
+            const eventList = closeEvents.map(e => `${escapeHtml(e.title)} (${escapeHtml(e.date)})`).join(', ');
+            const bannerText = `🦆 Nadchodzące wydarzenia: ${eventList}`;
+            banner.innerHTML = `<strong>${bannerText}</strong>`;
+            banner.style.display = 'block';
+        }
+
         let html = '';
 
         if (upcomingEvents.length) {
-            html += upcomingEvents.map(renderEvent).join('');
+            html += upcomingEvents.map(e => renderEvent(e, closeEventDates.has(e.date))).join('');
         } else {
             html += '<p>Brak zaplanowanych wydarzeń.</p>';
         }
@@ -172,22 +206,11 @@
             html += `
                 <details class="past-events">
                     <summary>Przeszłe wydarzenia</summary>
-                    ${pastEvents.map(renderEvent).join('')}
+                    ${pastEvents.map(e => renderEvent(e, false)).join('')}
                 </details>`;
         }
 
         eventsList.innerHTML = html;
-    }
-
-    // Render listy ważnych informacji dla rodziców
-    function renderInformation(informationWrap) {
-        const content = qs('#information-content');
-        const info = (informationWrap?.information || []).map((item) => `
-            <div class="information-item">
-                <h4>${escapeHtml(item.title || '')}</h4>
-                <p>${escapeHtml(item.content || '')}</p>
-            </div>`).join('');
-        content.innerHTML = info || '<p>Brak informacji.</p>';
     }
 
     function renderBanking(banking) {
@@ -226,7 +249,7 @@
             ]);
 
             const totalChildren = Number(site?.totalChildren ?? TOTAL_CHILDREN_FALLBACK);
-            qs('#site-title').textContent = site?.title || 'Składki grupy';
+            qs('#site-title').textContent = '🦆 KACZUSZKI 🦆';
             qs('#current-date').textContent = DATE_FORMATTER.format(new Date());
 
             const collections = (collectionsWrap?.collections || []).map((col) => normalizeCollection(col, totalChildren));
@@ -241,7 +264,6 @@
             qs('#past-list').innerHTML = closedCols.length ? closedCols.map((c) => renderCollectionCard(c, totalChildren)).join('') : '<p>Brak zamkniętych zbiórek.</p>';
             renderExpenses(expensesWrap);
             renderEvents(eventsWrap, new Date());
-            renderInformation(informationWrap);
             renderBanking(banking);
             setupLookupForm(openCols, totalChildren);
         } catch (err) {
