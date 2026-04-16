@@ -1,6 +1,12 @@
 {
     "expenses": [
         {
+            "date": "2026-04-16",
+            "what": "Ryzy papieru A4 x5",
+            "amount": 135.00,
+            "receipt": "receipts/20260416_161758.jpg"
+        },
+        {
             "date": "2026-04-09",
             "what": "Temperowki",
             "amount": 17.50,
