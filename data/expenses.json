@@ -1,6 +1,12 @@
 {
     "expenses": [
         {
+            "date": "2026-04-24",
+            "what": "Warsztaty LEGO",
+            "amount": 840.00,
+            "receipt": ""
+        },
+        {
             "date": "2026-04-16",
             "what": "Ryzy papieru A4 x5",
             "amount": 135.00,
