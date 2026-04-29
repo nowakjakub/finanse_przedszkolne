@@ -6,8 +6,8 @@
             "amountPerChild": 15.0,
             "status": "open",
             "paid": [
-                9,
-                14, 24
+                9,10,
+                14,16, 24
             ]
         },
         {
