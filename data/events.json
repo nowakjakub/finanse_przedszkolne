@@ -1,6 +1,16 @@
 {
     "events": [
         {
+            "date": "2026-05-15",
+            "title": "Kino Przedszkole - 'Kupuję, kiedy potrzebuję'",
+            "description": "Wyjście dzieci do kina"
+        },
+        {
+            "date": "2026-05-19",
+            "title": "Sesja zdjęciowa",
+            "description": "Sesja zdjęciowa w MUUStudio"
+        },
+        {
             "date": "2026-05-28",
             "title": "Dzień Mamy i Taty, 9:30",
             "description": "W naszej sali odbędzie się uroczystość z okazji Dnia Mamy i Taty. Zapraszamy wszystkich rodziców do wspólnego świętowania z nami!"

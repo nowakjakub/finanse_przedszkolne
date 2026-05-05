@@ -2,12 +2,33 @@
     "collections": [
         {
             "id": "JOGA-2026-05",
+            "name": "Kino Przedszkole - 13.05.2026",
+            "amountPerChild": 14.0,
+            "status": "open",
+            "paid": [
+                9
+            ]
+        },
+        {
+            "id": "JOGA-2026-05",
             "name": "Warsztaty Joga - do 05.06.2026",
             "amountPerChild": 15.0,
             "status": "open",
             "paid": [
-                1,4,8,9,10,
-                13,14,16,17,20,21,22, 24, 25
+                1,
+                4,
+                8,
+                9,
+                10,
+                13,
+                14,
+                16,
+                17,
+                20,
+                21,
+                22,
+                24,
+                25
             ]
         },
         {
