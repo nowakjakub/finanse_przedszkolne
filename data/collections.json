@@ -1,7 +1,6 @@
 {
     "collections": [
         {
-            "id": "JOGA-2026-05",
             "name": "Kino Przedszkole - 13.05.2026",
             "amountPerChild": 14.0,
             "status": "open",
@@ -11,7 +10,6 @@
             ]
         },
         {
-            "id": "JOGA-2026-05",
             "name": "Warsztaty Joga - do 05.06.2026",
             "amountPerChild": 15.0,
             "status": "open",
@@ -33,7 +31,6 @@
             ]
         },
         {
-            "id": "LEGO-2026-28",
             "name": "Warsztaty LEGO - do 24.04.2026",
             "amountPerChild": 35.0,
             "status": "closed",
@@ -65,8 +62,7 @@
             ]
         },
         {
-            "id": "kino-2026-04",
-            "name": "Koziolek matołek - do 10.04.2026",
+            "name": "Koziołek Matołek - do 10.04.2026",
             "amountPerChild": 15.0,
             "status": "closed",
             "paid": [
@@ -98,8 +94,7 @@
             ]
         },
         {
-            "id": "warsztaty-2026-04",
-            "name": "WARSZTATY ANIMALOTERAPII do 08.04.2026",
+            "name": "Warsztaty Animaloterapii - do 08.04.2026",
             "amountPerChild": 30.0,
             "status": "closed",
             "paid": [
@@ -130,8 +125,7 @@
             ]
         },
         {
-            "id": "spektakl-2026-03",
-            "name": "Spektakl 'Karolcia' do 16.03.2026",
+            "name": "Spektakl 'Karolcia' - do 16.03.2026",
             "amountPerChild": 25.0,
             "status": "closed",
             "paid": [
@@ -161,8 +155,7 @@
             ]
         },
         {
-            "id": "kino-2026-03",
-            "name": "Kino 'Roznimy sie od siebie i to jest ciekawe' do 16.03.2026",
+            "name": "Kino 'Różnimy się od siebie i to jest ciekawe' - do 16.03.2026",
             "amountPerChild": 14.0,
             "status": "closed",
             "paid": [
@@ -192,7 +185,6 @@
             ]
         },
         {
-            "id": "kwiatki-2026-01",
             "name": "Dekoracja - kwiatki",
             "amountPerChild": 10.0,
             "status": "closed",
@@ -225,7 +217,6 @@
             ]
         },
         {
-            "id": "klasowe-2025-09",
             "name": "Klasowe - wrzesień 2025",
             "amountPerChild": 50.0,
             "status": "closed",
