@@ -1,6 +1,12 @@
 {
     "expenses": [
         {
+            "date": "2026-05-15",
+            "what": "Wyjście do Kina",
+            "amount": 350.00,
+            "receipt": ""
+        },
+        {
             "date": "2026-04-24",
             "what": "Warsztaty LEGO",
             "amount": 840.00,
