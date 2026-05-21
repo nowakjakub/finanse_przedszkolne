@@ -1,6 +1,12 @@
 {
     "expenses": [
         {
+            "date": "2026-05-20",
+            "what": "Materiały na występ z okazji dnia mamy i taty",
+            "amount": 250.05,
+            "receipt": "receipts/20260521.jpeg"
+        },
+        {
             "date": "2026-05-15",
             "what": "Wyjście do Kina",
             "amount": 350.00,
